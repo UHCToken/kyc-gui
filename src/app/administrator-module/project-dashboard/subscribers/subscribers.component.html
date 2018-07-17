@@ -1,0 +1,160 @@
+<div class="container-fluid bg-grey">
+  <div class="col-12 pt-5 pb-5">
+    <div class="card">
+      <div class="card-body">
+        <p  (click)="exportSubscribers()" class="export-cvs text-right pt-3 pb-2 pl-3 pr-3 fm">Export to CSV</p>
+        <div class="table-responsive ">
+        <table class="table text-center fm" align="center">
+          <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Type</th>
+            <th>Public Address</th>
+            <th>Code</th>
+            <th>Status</th>
+            <th>IM Status</th>
+            <th>Created At</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <ng-container *ngIf="subscribers != null && subscribers.length > 0">
+            <tr *ngFor="let subscriber of subscribers | paginate: { id: 'subscribers-table', itemsPerPage: perPage, currentPage: currentPage, totalItems: totalEntries }">
+              <td>{{subscriber.firstName}}</td>
+              <td>{{subscriber.lastName}}</td>
+              <td>{{subscriber.email}}</td>
+              <td>
+                <ng-container *ngIf="subscriber.typeAddress == 'neo_address'">NEO</ng-container>
+                <ng-container *ngIf="subscriber.typeAddress == 'bitcoin_address'">BTC</ng-container>
+                <ng-container *ngIf="subscriber.typeAddress == 'etherum_address'">ETH</ng-container>
+                <ng-container *ngIf="subscriber.typeAddress == 'xlm_address'">XLM</ng-container>
+              </td>
+              <ng-container *ngIf="subscriber.publicAddress.length > 9">
+                <td class="ct-cel tooltip-bottom" [attr.data-tooltip]="subscriber.publicAddress" >{{subscriber.publicAddress.substring(0,10)}}</td>
+              </ng-container>
+              <ng-container *ngIf="subscriber.publicAddress.length <= 9">
+                <td>{{subscriber.publicAddress}}</td>
+              </ng-container>
+              <td>{{subscriber.referr}}</td>
+              <td *ngIf="subscriber.status == null"></td>
+              <td *ngIf="subscriber.status == 1" style="color: orange;">Pending</td>
+              <td *ngIf="subscriber.status == 2" style="color: green;">Accepted</td>
+              <td *ngIf="subscriber.status == 3" style="color: red;">Reject</td>
+              <td *ngIf="subscriber.statusIM == null"></td>
+              <td *ngIf="subscriber.statusIM == 1" style="color: orange;">Pending</td>
+              <td *ngIf="subscriber.statusIM == 2" style="color: green;">Accepted</td>
+              <td *ngIf="subscriber.statusIM == 3" style="color: red;">Reject</td>
+              <td>{{subscriber.createdAt ? ((subscriber.createdAt) | formatDate : false) : ''}}</td>
+              <td><a href="#modal-details" (click)="detailsSuscriber(subscriber)" data-toggle="modal" class="color-black"><i class="fa fa-search"></i> </a></td>
+              <td>
+                <i *ngIf="subscriber.awsAccessKeyId != null && subscriber.awsAccessKeyId != ''"
+                   style="cursor: pointer;"
+                   (click)="openSignedURL(subscriber.awsAccessKeyId)"
+                   class="fa fa-address-card"></i>
+                <i *ngIf="subscriber.awsAccessKeyId2 != null && subscriber.awsAccessKeyId2 != ''"
+                   style="cursor: pointer;"
+                   (click)="openSignedURL(subscriber.awsAccessKeyId2)"
+                   class="fa fa-address-card"></i>
+              </td>
+              <td>
+                <ng-container *ngIf="subscriber.status == 1">
+                  <i (click)="changeStatus(subscriber.id, 3)" class="fa fa-times-circle"></i>
+                  <i (click)="changeStatus(subscriber.id, 2)"  class="fa fa-check-circle"></i>
+                </ng-container>
+                <ng-container *ngIf="subscriber.status != 1">
+                  <i (click)="changeStatus(subscriber.id, 1)" class="fa fa-minus-circle"></i>
+                </ng-container>
+              </td>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="subscribers == null || subscribers.length == 0">
+            <tr align="center">
+              <td colspan="9">No records found.</td>
+            </tr>
+          </ng-container>
+          </tbody>
+        </table>
+        </div>
+        <div class="text-right" >
+          <div class="spinner" [ngClass]="{ 'hidden': !loading }"></div>
+          <ng-container *ngIf="subscribers.length > 0">
+            <pagination-controls  (pageChange)="getSubscribers($event)" id="subscribers-table"></pagination-controls>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="subscriberDetails != null">
+<div class="modal fade bd-example-modal-lg" id="modal-details" tabindex="-1" role="dialog" aria-labelledby="modal-details" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{subscriberDetails.firstName}} {{subscriberDetails.lastName}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" #closeModalDetails>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+           <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+             <div class="form-group">
+               <b>First Name:</b><br>
+               <label class="text-muted">{{subscriberDetails.firstName}}</label><br>
+               <b>Email:</b><br>
+               <label class="text-muted">{{subscriberDetails.email}}</label><br>
+               <b>Country:</b><br>
+               <label class="text-muted">{{subscriberDetails.country}}</label><br>
+               <b>Document Type:</b><br>
+               <label class="text-muted">{{subscriberDetails.documentType}}</label><br>
+               <b>Public Address:</b><br>
+               <label class="text-muted">{{subscriberDetails.publicAddress}}</label><br>
+               <b>Status:</b><br>
+               <label class="text-muted">{{subscriberDetails.statusName}}</label><br>
+               <b>Contribution:</b><br>
+               <label class="text-muted">{{subscriberDetails.contribution}}</label><br>
+               <b>Image:</b><br>
+               <i *ngIf="subscriberDetails.awsAccessKeyId != null && subscriberDetails.awsAccessKeyId != ''"
+                  style="cursor: pointer;"
+                  (click)="openSignedURL(subscriberDetails.awsAccessKeyId)"
+                  class="fa fa-address-card"></i>
+               <i *ngIf="subscriberDetails.awsAccessKeyId2 != null && subscriberDetails.awsAccessKeyId2 != ''"
+                  style="cursor: pointer;"
+                  (click)="openSignedURL(subscriberDetails.awsAccessKeyId2)"
+                  class="fa fa-address-card"></i>
+             </div>
+           </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+              <div class="form-group">
+                <b>Last Name:</b><br>
+                <label class="text-muted">{{subscriberDetails.lastName}}</label><br>
+                <b>Birthdate:</b><br>
+                <label class="text-muted">{{subscriberDetails.birthdate ? ((subscriberDetails.birthdate) | formatDate : false) : ''}}</label><br>
+                <b>State:</b><br>
+                <label class="text-muted">{{subscriberDetails.state}}</label><br>
+                <b>Type Address:</b><br>
+                <label class="text-muted" *ngIf="subscriberDetails.typeAddress == 'neo_address'">NEO</label>
+                <label class="text-muted" *ngIf="subscriberDetails.typeAddress == 'bitcoin_address'" >BTC</label>
+                <label class="text-muted" *ngIf="subscriberDetails.typeAddress == 'etherum_address'" >ETH</label>
+                <label class="text-muted" *ngIf="subscriberDetails.typeAddress == 'xlm_address'" >XLM</label>
+                <br><b>Code:</b><br>
+                <label class="text-muted">{{subscriberDetails.referr}}</label><br>
+                <b>Status IM:</b><br>
+                <label class="text-muted">{{subscriberDetails.statusIMName}}</label><br>
+                <b>Transaction Id:</b><br>
+                <label class="text-muted">{{subscriberDetails.transactionId}}</label><br>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn cl-blu-cel" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</ng-container>

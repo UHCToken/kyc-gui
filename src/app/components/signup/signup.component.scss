@@ -1,0 +1,47 @@
+
+.card {
+      border-radius:0rem;
+}
+
+.btn-outline-dark{
+	color: #fff
+}
+
+.form-control {
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #ced4da;
+}
+
+.title {
+	font-weight: 100
+}
+.signin-link{
+	padding-left: 20px;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+.big {
+	margin-top: 0px !important;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+
+.input-error{
+  color: #EA3F4F;
+  text-align: left;
+  margin-top: -16px;
+}

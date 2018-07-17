@@ -1,0 +1,36 @@
+.subscriber-container{
+  background-color: white;
+  width: 100%;
+  color: black;
+}
+
+.status{
+  .btn{
+    padding: 2px !important;
+  }
+}
+
+.dropdown-menu{
+  .btn{
+    width: 100%;
+  }
+}
+
+.fa-times-circle {
+  color: red;
+  margin-right: 10px;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.fa-check-circle {
+  color: green;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.has-text-centered{
+  float: right;
+  margin-bottom: 4em;
+  margin-bottom: 1em;
+}

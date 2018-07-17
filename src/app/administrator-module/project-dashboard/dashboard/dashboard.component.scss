@@ -1,0 +1,27 @@
+@import "~variables.scss";
+
+.customer-container{
+  background-color: $content-nav-background;
+  width: 100%;
+}
+
+.sidebar {
+  width: 220px !important;
+  background-color: $primary-background !important;
+
+}
+
+
+.main-panel {
+  width: 100% !important;
+}
+
+.sidebar-wrapper {
+  width: 220px !important;
+  background-color: $primary-background !important;
+}
+
+.sidebar:after, .bootstrap-navbar:after {
+  background-color: $primary-background !important;
+  background: linear-gradient(to bottom, $primary-background 0%, $primary-background 100%);
+}

@@ -1,0 +1,55 @@
+<div class="customer-container">
+    <div class="row">
+      <div class="col-md-4" >
+        <div class="form-group">
+          <div class="row">
+            <img class="img-logo" src="assets/img/logo.png" >
+          </div>
+        </div>
+        <br>
+        <a class="" href="/formkyc">View FormKYC</a>
+      </div>
+      <div class="col-md-6 " >
+        <div>
+          <div class="form-group">
+            <label for="project_description" class="cols-sm-2 control-label">Name</label>
+            <div class="row">
+              <input [(ngModel)]="project.name" name="project_name" id="project_name" class="form-control" value="{{project.name}}">
+            </div>
+          </div>
+
+        <div class="form-group">
+          <label for="project_description" class="cols-sm-2 control-label">Description</label>
+            <div class="row">
+              <textarea name="project_description" id="project_description" [(ngModel)]="project.description" class="form-control" value="{{project.description}}">
+              </textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="project_description" class="cols-sm-2 control-label">Website URL</label>
+            <div class="row">
+              <input name="project_name" id="project_website" [(ngModel)]="project.website" class="form-control" >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="project_description" class="cols-sm-2 control-label">White Paper URL</label>
+            <div class="row">
+              <input name="project_name" id="project_white_paper" [(ngModel)]="project.whitePaper" class="form-control" >
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class=" col-md-3 col-md-offset-7 button-save" >
+        <div *ngIf="message" class="alert alert-{{message.type}}-kyc text-center">{{message.message}}</div>
+        <button (click)="editProject()"  class="btn btn-danger btn-submit-kyc" style="width: 100%"  type="submit">
+        Save
+      </button>
+      </div>
+    </div>
+  </div>
+
+</div>

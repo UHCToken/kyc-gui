@@ -1,0 +1,56 @@
+@import "~variables.scss";
+
+.customer-container{
+  background-color: $content-nav-background;
+  width: 100%;
+  padding: 10px;
+  color: $content-nav-color;
+}
+
+.customer-container .row {
+  margin-top: 10px;
+}
+
+.alert-danger-kyc {
+  color: #cc1d1c;
+  padding: 0px;
+  margin-bottom: 5px !important;
+  font-size: 14px;
+
+}
+
+.alert-success-kyc {
+  color: #00931f;
+  padding: 0px;
+  margin-bottom: 5px !important;
+  font-size: 14px;
+
+}
+
+textarea {
+  height: 200px;
+}
+
+.button-save {
+}
+
+
+p > span {
+  margin-top: 10px;
+}
+
+.btn-submit-kyc {
+  background-color: $secundary-background !important;
+  border-color: $secundary-background !important;
+  color: $color-button-text !important;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.float-right {
+  float: right;
+}
+
+.img-logo{
+  margin-top: 2px;
+}

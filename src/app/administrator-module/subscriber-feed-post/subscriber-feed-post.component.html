@@ -1,0 +1,28 @@
+<div class="container-fluid bg-grey">
+  <div class="col-12 pt-5 pb-5 fm">
+    <div class="card">
+      <div class="card-body">
+        <h3 *ngIf="posts.length <= 0" align="center"> No messages in the community</h3>
+        <div *ngFor="let post of posts" class="post">
+          <div class="post-inner">
+            <div class="">
+              <p class="name"><i class="fa fa-caret-right"></i> {{post.project.name}}
+                <br>
+                <span class="date">
+                <a>{{post.createdAt ? ((post.createdAt) | formatDate : true) : ''}}</a>
+                </span>
+              </p>
+            </div>
+            <div class="post-content">
+              <p> {{post.content}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

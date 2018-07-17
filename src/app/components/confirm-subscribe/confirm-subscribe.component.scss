@@ -1,0 +1,32 @@
+@import "~variables.scss";
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+a {
+  color: $secundary-background !important;
+}
+
+.background-variable {
+  background-color: $primary-background;
+
+}
+
+p {
+  padding-top: 20px;
+}
+
+a {
+  cursor: pointer;
+}
+
+.bg-grey{
+  background-color: #F1F2F4;
+}
+
+.fm{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.cl-blu-cel{
+  background-color: $secundary-background !important;
+  color: white;
+}

@@ -1,0 +1,45 @@
+@import "~variables.scss";
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+a {
+  color: $secundary-background;
+  text-decoration: none;
+}
+
+.btn-success {
+  border-color: #004a10;
+  color: #fff;
+  background-color: #004a10;
+  padding: 5px;
+}
+
+.btn-danger {
+  border-color: #FF4A55;
+  color: #fff;
+  background-color: #FF4A55;
+  padding: 5px;
+}
+
+.btn-warning {
+  border-color: #FF8D19;
+  background-color: #FF8D19;
+  color: #fff;
+  padding: 5px;
+}
+
+.background-variable {
+  background-color: $primary-background;
+
+}
+
+a {
+  cursor: pointer;
+}
+
+.bg-grey{
+  background-color: #F1F2F4;
+}
+
+.fm{
+  font-family: 'Montserrat', sans-serif;
+}
+

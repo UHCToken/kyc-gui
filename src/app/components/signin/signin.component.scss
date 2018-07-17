@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.btn-login{
+  border-radius: 70px;
+  background-color: #0DFCB1;
+  border: none;
+}
+
+.ct-blue-md{
+  color: #0f6ff5 !important;
+}
+
+.home-page{
+  //background: url('../../../assets/img/signin/back_signin.png') no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+
+.input-login{
+    background-color: rgba(233 ,234 ,228,0.8);
+    border: none;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.pt-logo{
+  padding-top: 5rem !important;
+}
+
+.fm{
+  font-family: 'Montserrat', sans-serif;
+}
+
+a{
+  text-decoration: none;
+}
+
+.button-focus-none {
+  outline-width: 0px;
+}

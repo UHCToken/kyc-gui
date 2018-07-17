@@ -1,0 +1,73 @@
+<div class="container-fluid fm bg-grey">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 pt-5 pb-5">
+      <div class="card text-center">
+        <div class="card-body">
+          <ng-container *ngIf="subscriber != null">
+              <br>
+              <h4><strong>{{subscriber.project.welcomeMessage}}</strong></h4>
+              <p>
+                {{subscriber.project.description}}
+              </p>
+              <p>
+                <span *ngIf="subscriber.project.website" >
+                  <b>Website URL</b>
+                  <br>
+                  <a class="cl-b" [attr.href]="" (click)="goToLink(subscriber.project.website)"  target="_blank">{{subscriber.project.website}}</a>
+                </span>
+                <br>
+                <span *ngIf="subscriber.project.whitePaper" >
+                  <a class="cl-b" [attr.href]="" (click)="goToLink(subscriber.project.whitePaper)" >Read Whitepaper</a>
+                </span>
+              </p>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7 pt-5 pb-5">
+      <div class="card">
+        <div class="card-body">
+          <ng-container *ngIf="subscriber != null">
+              <h3>Hello {{subscriber.firstName}},</h3>
+              <h3>Thank you for applying to participate in the Universal Healthcoin private sale!</h3>
+              <br>
+              <ng-container *ngIf="subscriber.status == 1">
+                  <h4>Your subscription is <button class="btn btn-warning">Pending</button></h4>
+                  <h4>Your subscription has been received. We are working on evaluating the information and will send an email to you once your subscription has been approved.</h4>
+              </ng-container>
+              <ng-container *ngIf="subscriber.status == 2">
+                <h4>You have been <button class="btn btn-success">Approved!</button></h4>
+                <br>
+                <h5>Here is your next step:</h5>
+                <br>
+                <h6>For ETH, BTC, or NEO contributions, please follow these two steps:</h6>
+                <p>1. Send the contributions to one of Universal Healthcoin Public Address.</p>
+                <ul>
+                  <li>Public BTC Address : 1GjNTvqjfq2yncDyQ1Q8wE6bUNjsYemGuk</li>
+                  <li>Public ETH Address: 0x787FFAE3fC332c2aa941503A083d79eb62230215</li>
+                  <li>Public NEO Address: ALJ1oEJRhN8GbUSvLFzLYFE2AcYknp6LwM</li>
+                </ul>
+                <p>2. After you make the transfer, your wallet should give you an option to view the transaction ID.</p>
+                <p style="padding-top: 0px !important;">Please email the transaction ID to <strong>admin@universalhealthcoin.com</strong> so we can confirm the transaction.</p>
+                <h6>For fiat currency contributions in USD, follow these two steps: </h6>
+                <p>1. Please contact to <strong>admin@universalhealthcoin.com</strong>.</p>
+                <p>Once we confirm your contribution, we will add you to our smart contract database for token distribution.</p>
+                <p >Best Regards,</p>
+                <p>Sophia</p>
+                <p>Community Manager</p>
+                <p>sophia@universalhealthcoin.com</p>
+              </ng-container>
+              <ng-container *ngIf="subscriber.status == 3">
+                <h4>You have been <button class="btn btn-danger">Rejected!</button></h4>
+                <h4>Your subscription has been declined. You can not participate in the token sale.</h4>
+              </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>

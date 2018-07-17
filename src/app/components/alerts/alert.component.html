@@ -1,0 +1,33 @@
+<div align="center">
+  <div *ngIf="(alert | async).show && (alert | async).type === 'error'">
+    <div class="alert alert-danger alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Danger!</strong> {{(alert | async).text}}.
+    </div>
+  </div>
+  <div *ngIf="(alert | async).show &&  (alert | async).type === 'success'">
+    <div class="alert alert-success alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Success!</strong> {{(alert | async).text}}.
+    </div>
+  </div>
+  <div *ngIf="(alert | async).show &&  (alert | async).type === 'info'">
+    <div class="alert alert-info alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Info!</strong> {{(alert | async).text}}.
+    </div>
+  </div>
+  <div *ngIf="(alert | async).show &&  (alert | async).type === 'warning'">
+    <div class="alert alert-warning alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Warning!</strong> {{(alert | async).text}}.
+    </div>
+  </div>
+  <div *ngIf="(alert | async).show &&  (alert | async).type === 'primary'">
+    <div class="alert alert-primary alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Primary!</strong> {{(alert | async).text}}.
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,39 @@
+<div class="container-fluid bg-grey">
+  <div class="col-12 pt-5 pb-5">
+    <div class="card fm">
+      <div class="card-body">
+        <div class="form-group row">
+          <label for="numDays" class="col-12 col-sm-6 col-md-2 col-lg-2 col-xl-2 pl-5">Select Days</label>
+          <div class="col-12 col-sm-5 col-md-5 col-lg-5 col-xl-5">
+            <select class="form-control" name="numDays" [(ngModel)]="numDays" (change)="changeNumDays()" id="numDays" >
+              <option value="30">30</option>
+              <option value="15">15</option>
+              <option value="7">7</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-12">
+          <label><strong>Subscribers per day</strong></label>
+            <google-chart [data]="subscriberPerDay"></google-chart>
+        </div>
+        <div class="col-12">
+          <label><strong>Total contribution per day</strong></label>
+            <google-chart [data]="contributionPerDay"></google-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!--div class="row">
+  <ul class="nav nav-tabs">
+    <li><a routerLink="subscriber-per-day" routerLinkActive="active">Subscriber Per Day</a></li>
+    <li><a routerLink="contribution-per-day" routerLinkActive="active">Contribution Per Day</a></li>
+  </ul>
+  </div>
+  <div class="row">
+    <router-outlet></router-outlet>
+  </div-->
+
+
+

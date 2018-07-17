@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.social{
+  color: #D9DADC;
+  text-decoration: none;
+  font-size: 20px;
+  i:hover{
+    color: #0f6ff5 !important;
+  }
+  a:hover{
+    color: #0f6ff5 !important;
+  }
+}
+
+.social-no-cards{
+  color: #0f6ff5;
+  text-decoration: none;
+  font-size: 20px;
+  i:hover{
+    color: #0DFCB1 !important;
+  }
+  a:hover{
+    color: #0DFCB1 !important;
+  }
+}
+
+.text-footer{
+  color: #69788c;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.bg-grey{
+  background-color: #F1F2F4;
+}
+
+.bg-white-footer{
+  background-color: white;
+}
+
+.cl-blue-cel{
+  color: #1dc7ea !important;
+}
+
+.cl-grey{
+  color: #69788c !important;
+}

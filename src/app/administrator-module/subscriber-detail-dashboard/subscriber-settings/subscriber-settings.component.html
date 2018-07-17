@@ -1,0 +1,80 @@
+<div class="modal fade" id="modal-details" tabindex="-1" role="dialog" aria-labelledby="modal-details" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{subscriber.firstName}} {{subscriber.lastName}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row pb-2">
+          <div class="col-md-2 col-md-offset-1"><b>First Name:</b></div>
+          <div class="col-md-3">{{subscriber.firstName}}</div>
+          <div class="col-md-2"><b>Last Name:</b></div>
+          <div class="col-md-3">{{subscriber.lastName}}</div>
+        </div>
+
+        <div class="row pb-2">
+          <div class="col-md-2 col-md-offset-1"><b>Email:</b></div>
+          <div class="col-md-3">{{subscriber.email}}</div>
+          <div class="col-md-2"><b>Birthdate:</b></div>
+          <div class="col-md-3">{{subscriber.birthdate ? ((subscriber.birthdate) | formatDate : false) : ''}}</div>
+        </div>
+
+        <div class="row pb-2">
+          <div class="col-md-2 col-md-offset-1"><b>Country:</b></div>
+          <div class="col-md-3">{{subscriber.country}}</div>
+          <div class="col-md-2"><b>State:</b></div>
+          <div class="col-md-3">{{subscriber.state}}</div>
+        </div>
+
+        <div class="row pb-2">
+          <div class="col-md-2 col-md-offset-1"><b>Document Type:</b></div>
+          <div class="col-md-3">{{subscriber.documentType}}</div>
+          <div class="col-md-2"><b>Type Address:</b></div>
+          <div class="col-md-3" *ngIf="subscriber.typeAddress == 'neo_address'">NEO</div>
+          <div class="col-md-3" *ngIf="subscriber.typeAddress == 'bitcoin_address'" >BTC</div>
+          <div class="col-md-3" *ngIf="subscriber.typeAddress == 'etherum_address'" >ETH</div>
+          <div class="col-md-3" *ngIf="subscriber.typeAddress == 'xlm_address'" >XLM</div>
+        </div>
+
+        <div class="row pb-2">
+          <div class="col-md-2 col-md-offset-1"><b>Public Address:</b></div>
+          <div class="col-md-3">{{subscriber.publicAddress}}</div>
+          <div class="col-md-2"><b>Code:</b></div>
+          <div class="col-md-3">{{subscriber.referr}}</div>
+        </div>
+
+        <div class="row pb-2">
+          <div class="col-md-2 col-md-offset-1"><b>Status:</b></div>
+          <div class="col-md-3">{{subscriber.statusName}}</div>
+          <div class="col-md-2"><b>Status IM:</b></div>
+          <div class="col-md-3">{{subscriber.statusIMName}}</div>
+        </div>
+        <div class="row pb-2">
+          <div class="col-md-2 col-md-offset-1"><b>Contribution:</b></div>
+          <div class="col-md-3">{{subscriber.contribution}}</div>
+          <div class="col-md-2"><b>Transaction Id:</b></div>
+          <div class="col-md-3">{{subscriber.transactionId}}</div>
+        </div>
+        <div class="row pb-2">
+          <div class="col-md-2 col-md-offset-1"><b>Image:</b>&nbsp;</div>
+          <div class="col-md-3">
+            <i *ngIf="subscriber.awsAccessKeyId != null && subscriber.awsAccessKeyId != ''"
+               style="cursor: pointer;"
+               (click)="openSignedURL(subscriber.awsAccessKeyId)"
+               class="fa fa-address-card"></i>
+            <i *ngIf="subscriber.awsAccessKeyId2 != null && subscriber.awsAccessKeyId2 != ''"
+               style="cursor: pointer;"
+               (click)="openSignedURL(subscriber.awsAccessKeyId2)"
+               class="fa fa-address-card"></i>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="container-fluid pt-5 pb-5 bg-grey">
+  <div class="col-12">
+    <div class="card fm">
+      <div class="card-body">
+        <label>{{titlePost}} Message</label>
+        <form>
+          <textarea [(ngModel)]="postContent" name="postContent" class="form-control"></textarea>
+          <div class="row">
+            <div class="text-left pb-3 pt-3 col-6">
+              <button *ngIf="isEdit" class="btn-send pt-2 pb-2 pointer" (click)="finishEdit()">Cancel</button>
+            </div>
+            <div class="text-right pb-3 pt-3 col-6">
+              <button class="btn-send pt-2 pb-2 pointer" (click)="createPost()">{{titleButton}}</button>
+            </div>
+          </div>
+        </form>
+        <h3 *ngIf="posts.length <= 0" align="center"> No messages in the community</h3>
+        <div *ngFor="let post of posts" class="post">
+          <div class="post-inner">
+            <div class="">
+              <p class="name"><i class="fa fa-caret-right"></i> {{post.project.name}}
+                <br>
+                <span class="date">
+                  {{post.createdAt ? ((post.createdAt) | formatDate : true) : ''}}
+                </span>
+              </p>
+            </div>
+            <div class="post-content">
+              <p> {{post.content}}
+              </p>
+            </div>
+            <div class="icons-actions text-right pb-2">
+              <i (click)="editPost(post.id, post.content)" class="fas fa-pencil-alt fa-lg color-green pr-2" aria-hidden="true"></i>
+              <i (click)="removePost(post.id)" class="fas fa-trash-alt fa-lg color-red" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

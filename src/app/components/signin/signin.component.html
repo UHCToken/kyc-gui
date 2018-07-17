@@ -1,0 +1,41 @@
+<div id="signInPopup" (keyup.enter)="signin(signinForm)">
+  <div class="container-fluid home-page">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col-8 col-sm-8 col-md-4 col-lg-4 col-xl-4 pt-logo">
+        <div *ngIf="message" class="alert alert-{{message.type}} text-center pt-3 pb-3">{{message.message}}</div>
+        <form class="fm" method="post" [formGroup]="signinForm" (ngSubmit)="signin(signinForm)">
+          <div class="text-center pb-5">
+            <img src="assets/img/LogoU.png">
+          </div>
+          <div class="form-group">
+            <label for="signInName">Email</label>
+            <input type="text" name="email" id="signInName" class="form-control input-login" formControlName="email" value="{{email}}">
+          </div>
+          <div class="form-group">
+            <label for="signInPassword">Password</label>
+            <input type="password" autocomplete="off" name="password" class="form-control input-login" id="signInPassword" formControlName="password" />
+          </div>
+          <div class="form-group">
+            <input type="checkbox" name="rememberme" value="1" id="signInRemember" (change)="keepMe = !keepMe" />
+            <span><small>Keep me signed in</small></span>
+          </div>
+
+          <div class="text-center">
+            <button type="button" class="pt-3 pb-3 pl-5 pr-5 btn-login ct-blue-md pointer button-focus-none" (click)="signin(signinForm)">
+              <app-loading *ngIf="loading"></app-loading>
+              Log In
+            </button>
+          </div>
+          <div class="text-center">
+            <p class="pt-5 pb-2"><small><a class="ct-blue-md fm" routerLink="/formkyc">If you are looking to join our whitelist, click here</a></small></p>
+            <p class="pt-3"><small><a class="ct-blue-md fm" routerLink="/forgot-password">Trouble logging in?</a></small></p>
+          </div>
+        </form>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
+</div>

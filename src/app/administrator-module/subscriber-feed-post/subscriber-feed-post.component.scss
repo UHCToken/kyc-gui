@@ -1,0 +1,85 @@
+@import "~variables.scss";
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.post{
+  background: $primary-background;
+  border-top: 1px solid #9197a3;
+}
+
+.post-inner {
+  background:$primary-background;
+}
+
+.name{
+  display:inline-block;
+  color:$secundary-background;
+}
+
+.date a{
+  color:#9197a3;
+}
+
+.date {
+  color:#9197a3;
+}
+
+.fa.fa-caret-right{
+  color:$secundary-background;
+}
+
+.post-content{
+  color: $secundary-color
+}
+
+.btn-submit-kyc {
+  background-color: $secundary-background !important;
+  border-color: $secundary-background !important;
+  color: $color-button-text !important;
+}
+
+label {
+  color: $content-nav-color;
+}
+
+
+.btn-submit-kyc-cancel {
+  border-color: #6b0917 !important;
+  color: $secundary-color !important;
+  background-color: #6b0917 !important;
+}
+
+h3 {
+  color: $secundary-color !important;
+}
+
+
+.color-green {
+  color: $secundary-background;
+  cursor: pointer;
+}
+
+.color-red {
+  color: #e7283a;
+  cursor: pointer;
+}
+
+.bg-grey{
+  background-color: #F1F2F4;
+}
+
+.fm{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-send{
+  background-color: $secundary-background;
+  border: none;
+  outline-width: 0px;
+  color: white;
+  border-radius: 5px;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
